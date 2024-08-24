@@ -1,6 +1,6 @@
 * Suckless Configs
 ** Powerline Fonts
-Install powerline fonts with ([[reference][https://www.fosslinux.com/134427/how-to-install-and-use-powerline-fonts-on-ubuntu.htm]]): 
+Install powerline fonts with ([[https://www.fosslinux.com/134427/how-to-install-and-use-powerline-fonts-on-ubuntu.htm][reference]]): 
 #+begin_src bash
 # ubuntu/debian
 sudo apt-get install fonts-powerline

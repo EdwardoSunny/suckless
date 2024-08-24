@@ -1,4 +1,11 @@
 * Suckless Configs
+** Powerline Fonts
+Install powerline fonts with: 
+#+begin_src bash
+# ubuntu/debian
+sudo apt-get install fonts-powerline
+#+end_src
+
 
 ** ST Bug
 st issue. If no correct fonts, will just crash st. This is documented in [[https://github.com/LukeSmithxyz/st/issues/130][this issue]]. Thus fix by running/installing this font:

@@ -1,0 +1,40 @@
+* Suckless Configs
+
+** ST Bug
+st issue. If no correct fonts, will just crash st. This is documented in [[https://github.com/LukeSmithxyz/st/issues/130][this issue]]. Thus fix by running/installing this font:
+#+begin_src bash
+# ubuntu/debian
+sudo apt install unifont
+
+# arch
+sudo pacman -S bdf-unifont
+#+end_src
+
+** .xinitrc
+if not using a login manager, must start using .xinitrc or .xsession
+- remember to install autorandr and nitrogen for backgrounds and run the following to set background:
+#+begin_src bash
+nitrogen --force-setter=xinerama
+#+end_src
+
+format .xinitrc or .xsession like this:
+#+begin_src bash
+#!/bin/sh
+slstatus &
+nitrogen --restore --set-zoom-fill &
+autorandr --change &
+exec dwm
+#+end_src
+
+** .bash_profile
+check if login/non-interactive shell
+#+begin_src bash
+if [ -n "$BASH_VERSION" ]; then
+        if [ -f ~/.bashrc ]; then
+        . "$HOME/.bashrc";
+        slstatus &
+        nitrogen --restore --set-zoom-fill &
+        autorandr --change
+        fi
+fi
+#+end_src

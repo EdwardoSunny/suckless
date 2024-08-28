@@ -1,4 +1,12 @@
 * Suckless Configs
+** Install Flameshot for Screenshot
+#+begin_src bash
+# ubuntu/debian
+sudo apt-get install flameshot 
+#+end_src
+
+
+
 ** Powerline Fonts
 Install powerline fonts with ([[https://www.fosslinux.com/134427/how-to-install-and-use-powerline-fonts-on-ubuntu.htm][reference]]): 
 #+begin_src bash

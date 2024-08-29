@@ -5,8 +5,6 @@
 sudo apt-get install flameshot 
 #+end_src
 
-
-
 ** Powerline Fonts
 Install powerline fonts with ([[https://www.fosslinux.com/134427/how-to-install-and-use-powerline-fonts-on-ubuntu.htm][reference]]): 
 #+begin_src bash
@@ -45,6 +43,15 @@ autorandr --change &
 exec dwm
 #+end_src
 
+** dmenu
+if dmenu items not showing up but running, the cache maybe malformed. Therefore clear it and restart/rerun dmenu and it should work.
+
+There are two locations where the cache could be:
+#+begin_src bash
+rm ~/.dmenu_cache
+rm ~/.cache/dmenu_run.
+#+end_src
+
 ** .bash_profile
 check if login/non-interactive shell
 #+begin_src bash
@@ -53,7 +60,8 @@ if [ -n "$BASH_VERSION" ]; then
         . "$HOME/.bashrc";
         slstatus &
         nitrogen --restore --set-zoom-fill &
-        autorandr --change
+        # autorandr --change
         fi
 fi
+. "$HOME/.cargo/env"
 #+end_src

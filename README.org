@@ -1,4 +1,36 @@
 * Suckless Configs
+** Keybindings
+I use capslock as an additional escape because it is easier to reach than the super key and some of my older keyboards don't have a super key. 
+
+However, I also use capslock as an additional super because I like vim keybindings and esc is too far to reach.
+
+To do this, first set capslock as an additional SUPER. Go to =/etc/default/keyboard=, and add:
+#+begin_src bash
+XKBOPTIONS="caps:super"
+#+end_src
+
+Now, use xcape to set capslock to be super when held, esc when tapped.
+#+begin_src bash
+sudo apt install xcape
+#+end_src
+
+Place this into your =.xinitrc= or =.xsession=:
+#+begin_src bash
+xcape -e "Super_L=Escape"
+#+end_src
+
+Result =.xinitrc=:
+#+begin_src bash
+#!/bin/sh
+
+slstatus &
+nitrogen --restore --set-zoom-fill &
+# autorandr --change &
+picom -b &
+xcape -e "Super_L=Escape" &
+exec dwm
+#+end_src
+
 ** Install Flameshot for Screenshot
 #+begin_src bash
 # ubuntu/debian

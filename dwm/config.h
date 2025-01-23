@@ -40,7 +40,8 @@ static const unsigned int alphas[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"st", NULL,
+	/* "st", NULL, */
+	"alacritty", NULL,
 	"xcompmgr", NULL,
 	NULL /* terminate */
 };

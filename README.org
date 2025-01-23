@@ -4,32 +4,32 @@ I use capslock as an additional escape because it is easier to reach than the su
 
 However, I also use capslock as an additional super because I like vim keybindings and esc is too far to reach.
 
-To do this, first set capslock as an additional SUPER. Go to =/etc/default/keyboard=, and add:
+To do this, first set capslock as an additional SUPER. Ensure that this is set before the xcape command, otherwise only the left super will be set to ESC without the tap behavior for caps lock:
 #+begin_src bash
-XKBOPTIONS="caps:super"
+setxkbmap -option caps:super
 #+end_src
 
 Now, use xcape to set capslock to be super when held, esc when tapped.
 #+begin_src bash
 sudo apt install xcape
-#+end_src
-
-Place this into your =.xinitrc= or =.xsession=:
-#+begin_src bash
 xcape -e "Super_L=Escape"
 #+end_src
 
-Result =.xinitrc=:
+Now instead of running these commands manually, put them in =.xinitrc=:
 #+begin_src bash
 #!/bin/sh
-
+setxkbmap -option caps:super
+xcape -e "Super_L=Escape"
 slstatus &
 nitrogen --restore --set-zoom-fill &
-# autorandr --change &
 picom -b &
-xcape -e "Super_L=Escape" &
 exec dwm
 #+end_src
+
+Make sure the =setxkbmap= and =xcape= run sequentially, otherwise the order will be wrong due to racing condition of the two configurations.
+
+if not using a login manager, must start using .xinitrc or .xsession
+- remember to install autorandr and nitrogen for backgrounds
 
 ** Install Flameshot for Screenshot
 #+begin_src bash
@@ -57,22 +57,6 @@ sudo apt install unifont
 
 # arch
 sudo pacman -S bdf-unifont
-#+end_src
-
-** .xinitrc
-if not using a login manager, must start using .xinitrc or .xsession
-- remember to install autorandr and nitrogen for backgrounds and run the following to set background:
-#+begin_src bash
-nitrogen --force-setter=xinerama
-#+end_src
-
-format .xinitrc or .xsession like this:
-#+begin_src bash
-#!/bin/sh
-slstatus &
-nitrogen --restore --set-zoom-fill &
-autorandr --change &
-exec dwm
 #+end_src
 
 ** dmenu

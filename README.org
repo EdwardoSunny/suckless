@@ -37,6 +37,24 @@ if not using a login manager, must start using .xinitrc or .xsession
 sudo apt-get install flameshot 
 #+end_src
 
+** Blueman bluetooth management
+Check if your computer has a bluetooth adapter, if not, buy a USB bluetooth adapter.
+
+To use it, install [[https://wiki.archlinux.org/title/Blueman][Blueman]]: 
+#+begin_src bash
+sudo apt-get install blueman
+#+end_src
+
+Start it with:
+#+begin_src bash
+blueman-applet
+#+end_src
+
+Launch the GUI with:
+#+begin_src bash
+blueman-manager
+#+end_src
+
 ** Powerline Fonts
 Install powerline fonts with ([[https://www.fosslinux.com/134427/how-to-install-and-use-powerline-fonts-on-ubuntu.htm][reference]]): 
 #+begin_src bash

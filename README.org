@@ -1,3 +1,25 @@
+* Basics
+After patching, run:
+#+begin_src bash
+sudo make clean install
+#+end_src
+
+Then restart dwm, st, etc. for patches to go through
+
+** .xinitrc
+If using ly login manager, just use the =.xinitrc= option. If you use some =.desktop= file under =/usr/share/xsessions/dwm.desktop= and have to make autostart files under =.config/autostart/something.desktop=. Too complicated. Just use the .xinitrc option and everything works!
+
+Current =.xinitrc=:
+#+begin_src bash
+#!/bin/sh
+setxkbmap -option caps:super
+xcape -e "Super_L=Escape"
+slstatus &
+nitrogen --restore --set-zoom-fill &
+picom -b &
+exec dwm
+#+end_src
+
 * Suckless Configs
 ** Keybindings
 I use capslock as an additional escape because it is easier to reach than the super key and some of my older keyboards don't have a super key. 
